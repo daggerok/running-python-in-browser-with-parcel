@@ -1,0 +1,50 @@
+{
+  "name": "python-parcel-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html --no-cache",
+    "build": "parcel build src/index.html --no-cache",
+    "start": "pm2 start 'npm run dev' --name app",
+    "restart": "pm2 restart app",
+    "stop": "pm2 kill",
+    "logs": "pm2 logs"
+  },
+  "keywords": [
+    "pm2",
+    "parcel",
+    "python",
+    "python3",
+    "brython"
+  ],
+  "author": "daggerok",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "1.12.4",
+    "parcel-plugin-html-externals": "0.2.0",
+    "parcel-plugin-static-files-copy": "2.3.1",
+    "pm2": "4.2.3"
+  },
+  "externals": {
+    "./brython/brython.js": false,
+    "./brython/brython_stdlib.js": false,
+    "./python/index.py": false
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "./node_modules/brython",
+        "staticOutDir": "brython",
+        "excludeGlob": "!(brython.js|brython_stdlib.js)"
+      },
+      {
+        "staticPath": "./src/python",
+        "staticOutDir": "python"
+      }
+    ]
+  },
+  "dependencies": {
+    "brython": "3.8.8"
+  }
+}

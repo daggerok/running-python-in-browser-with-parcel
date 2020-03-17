@@ -1,0 +1,1 @@
+print('ololo trololo')

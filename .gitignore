@@ -1,0 +1,11 @@
+.idea
+*.iml
+*.ipr
+*.iws
+*.log*
+.DS_Store
+Thumbs.db
+node_modules/
+.cache/
+dist/
+package-lock.json
